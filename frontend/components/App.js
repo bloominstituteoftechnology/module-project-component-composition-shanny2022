@@ -2,6 +2,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DisplayData from './DisplayData';
+import styled from 'styled-components';
+
+const AppContainer = styled.div`
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+`;
+
+const Title = styled.h1`
+  color: #333;
+`;
+
+const DatePicker = styled.input`
+  margin: 20px 0;
+  padding: 10px;
+`;
 
 function App() {
   const [data, setData] = useState(null);
@@ -24,11 +40,11 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>NASA Picture of the Day</h1>
-      <input type="date" value={date} onChange={handleDateChange} />
+    <AppContainer>
+      <Title>NASA Picture of the Day</Title>
+      <DatePicker type="date" value={date} onChange={handleDateChange} />
       <DisplayData data={data} />
-    </div>
+    </AppContainer>
   );
 }
 
